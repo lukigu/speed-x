@@ -1,8 +1,40 @@
-#Ignore all files and folders.
-/*
+# =============== #
+# Unity generated #
+# =============== #
+UnityGenerated/
+Assets/AssetStoreTools*
+[Tt]emp/
+[Oo]bj/
+[Bb]uild
+[Ll]ibrary/
+sysinfo.txt
+*.stackdump
 
-#Except the Assets and ProjectSettings folder, as well as the selected Git files.
-!Assets/
-!ProjectSettings/
-!.gitignore
-!.gitattributes
+# ===================================== #
+# Visual Studio / MonoDevelop generated #
+# ===================================== #
+Ee]xported[Oo]bj/
+.vs/
+/*.userprefs
+/*.csproj
+/*.pidb
+/*.suo
+/*.sln*
+/*.user
+/*.unityproj
+/*.booproj
+/.idea*/
+
+# ============ #
+# OS generated #
+# ============ #
+.DS_Store*
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+[Tt]humbs.db
+[Dd]esktop.ini
+Library/SourceAssetDB
+Library/ArtifactDB
+*.zip
