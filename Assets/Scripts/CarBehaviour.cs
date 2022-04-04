@@ -26,16 +26,8 @@ public class CarBehaviour : MonoBehaviour {
         float brForce = 0;
         if (verticalAxis < 0) {
             motor = maxBackwardMotorTorque * verticalAxis;
-            if(this.rigidbody.velocity.magnitude > 0f)
-            {
-                brForce = breakForce;
-            }
         }else {
             motor = maxForwardMotorTorque * verticalAxis;
-            if (this.rigidbody.velocity.magnitude < 0f)
-            {
-                brForce = breakForce;
-            }
         }
         if (Input.GetKey(KeyCode.Space))
         {
