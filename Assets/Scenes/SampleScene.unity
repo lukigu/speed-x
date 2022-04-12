@@ -3451,21 +3451,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80865bd3101d76d45a5233deccdb6978, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  axleInfos:
-  - leftWheel: {fileID: 4895846114247730478}
-    rightWheel: {fileID: 4895846116023403035}
-    motor: 0
-    steering: 1
-    brake: 0
-  - leftWheel: {fileID: 4895846115341556968}
-    rightWheel: {fileID: 4895846114221942933}
-    motor: 1
-    steering: 0
-    brake: 0
-  maxForwardMotorTorque: 2000
-  maxBackwardMotorTorque: 500
-  breakForce: 4000
-  maxSteeringAngle: 30
+  maxAngle: 0
+  maxTorque: 0
+  breakTorque: 0
+  wheelShape: {fileID: 0}
+  criticalSpeed: 0
+  stepBelow: 0
+  stepAbove: 0
+  driveType: 0
+  handBrake: 0
+  torque: 0
+  angle: 0
+  inputActions: {fileID: 0}
 --- !u!224 &8560908986279553044
 RectTransform:
   m_ObjectHideFlags: 0

@@ -2,11 +2,11 @@
     "name": "PlayerController",
     "maps": [
         {
-            "name": "Main",
+            "name": "Gameplay",
             "id": "635beb8d-73cb-4b54-8f82-f2c463a41a0c",
             "actions": [
                 {
-                    "name": "Move",
+                    "name": "Acceleration",
                     "type": "Button",
                     "id": "3029ef37-aa87-4f3f-a867-8c5d0dcaa29a",
                     "expectedControlType": "Button",
@@ -15,7 +15,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Turn",
+                    "name": "SteeringAngle",
                     "type": "Value",
                     "id": "7574d502-7e84-4c42-9a8a-b87181f46730",
                     "expectedControlType": "Axis",
@@ -24,7 +24,7 @@
                     "initialStateCheck": true
                 },
                 {
-                    "name": "Break",
+                    "name": "HandBrake",
                     "type": "Button",
                     "id": "2be93c60-005b-4bb9-9111-678cc4e99c44",
                     "expectedControlType": "Button",
@@ -41,7 +41,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Move",
+                    "action": "Acceleration",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -52,7 +52,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Move",
+                    "action": "Acceleration",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -63,7 +63,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Turn",
+                    "action": "SteeringAngle",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -74,7 +74,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Turn",
+                    "action": "SteeringAngle",
                     "isComposite": true,
                     "isPartOfComposite": false
                 },
@@ -85,7 +85,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Turn",
+                    "action": "SteeringAngle",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
@@ -96,7 +96,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Turn",
+                    "action": "SteeringAngle",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
@@ -107,7 +107,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Break",
+                    "action": "HandBrake",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -118,7 +118,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Break",
+                    "action": "HandBrake",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
