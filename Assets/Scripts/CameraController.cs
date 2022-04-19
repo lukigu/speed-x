@@ -9,7 +9,7 @@ public class CameraController : MonoBehaviour
     public float followSpeed;
     public float rotateSpeed;
 
-    void Update()
+    void FixedUpdate()
     {
         transform.position = Vector3.Lerp(transform.position, target.position, followSpeed * Time.deltaTime);
         transform.rotation = Quaternion.Lerp(transform.rotation, target.rotation, rotateSpeed * Time.deltaTime);

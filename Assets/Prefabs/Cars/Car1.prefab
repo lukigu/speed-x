@@ -94,7 +94,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1106380266269586642, guid: 67b23a8dba1e5b14982ae2a4295a04f8, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.14100003
+      value: -0.25600004
       objectReference: {fileID: 0}
     - target: {fileID: 1106380266443610656, guid: 67b23a8dba1e5b14982ae2a4295a04f8, type: 3}
       propertyPath: m_RootOrder
@@ -141,12 +141,24 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1106380266443610657, guid: 67b23a8dba1e5b14982ae2a4295a04f8, type: 3}
+      propertyPath: m_Drag
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1106380266443610657, guid: 67b23a8dba1e5b14982ae2a4295a04f8, type: 3}
+      propertyPath: m_Mass
+      value: 1500
+      objectReference: {fileID: 0}
+    - target: {fileID: 1106380266443610657, guid: 67b23a8dba1e5b14982ae2a4295a04f8, type: 3}
+      propertyPath: m_AngularDrag
+      value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 1106380266443610657, guid: 67b23a8dba1e5b14982ae2a4295a04f8, type: 3}
       propertyPath: m_Interpolate
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1106380266443610658, guid: 67b23a8dba1e5b14982ae2a4295a04f8, type: 3}
       propertyPath: maxAngle
-      value: 30
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 1106380266443610658, guid: 67b23a8dba1e5b14982ae2a4295a04f8, type: 3}
       propertyPath: driveType
@@ -154,7 +166,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1106380266443610658, guid: 67b23a8dba1e5b14982ae2a4295a04f8, type: 3}
       propertyPath: maxTorque
-      value: 800
+      value: 400
       objectReference: {fileID: 0}
     - target: {fileID: 1106380266443610658, guid: 67b23a8dba1e5b14982ae2a4295a04f8, type: 3}
       propertyPath: stepAbove
@@ -174,7 +186,7 @@ PrefabInstance:
       objectReference: {fileID: 1788088329857464, guid: 91d6aee406d26d646b762956295acca3, type: 3}
     - target: {fileID: 1106380266443610658, guid: 67b23a8dba1e5b14982ae2a4295a04f8, type: 3}
       propertyPath: breakTorque
-      value: 30000
+      value: 60000
       objectReference: {fileID: 0}
     - target: {fileID: 1106380266443610658, guid: 67b23a8dba1e5b14982ae2a4295a04f8, type: 3}
       propertyPath: inputActions
@@ -210,7 +222,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1106380267035901019, guid: 67b23a8dba1e5b14982ae2a4295a04f8, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.13
+      value: -0.245
       objectReference: {fileID: 0}
     - target: {fileID: 1106380267375161492, guid: 67b23a8dba1e5b14982ae2a4295a04f8, type: 3}
       propertyPath: m_SuspensionDistance
@@ -218,7 +230,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1106380267375161493, guid: 67b23a8dba1e5b14982ae2a4295a04f8, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.13
+      value: -0.245
       objectReference: {fileID: 0}
     - target: {fileID: 1106380267531064710, guid: 67b23a8dba1e5b14982ae2a4295a04f8, type: 3}
       propertyPath: m_LocalPosition.y
@@ -234,7 +246,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1106380267763926490, guid: 67b23a8dba1e5b14982ae2a4295a04f8, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.141
+      value: -0.256
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 1106380267531064709, guid: 67b23a8dba1e5b14982ae2a4295a04f8, type: 3}
