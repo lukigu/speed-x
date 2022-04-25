@@ -26,6 +26,10 @@ public class CarBehaviour : MonoBehaviour
     InputAction steeringInputAction;
     InputAction accelerationInputAction;
 
+    private GameController gameController;
+    [SerializeField]
+    private bool blockingInputs = false;
+
     private void Awake()
     {
         gameplayActionMap = inputActions.FindActionMap("Gameplay");
@@ -42,6 +46,8 @@ public class CarBehaviour : MonoBehaviour
 
         accelerationInputAction.performed += GetTorqueInput;
         accelerationInputAction.canceled += GetTorqueInput;
+
+        gameController = FindObjectOfType<GameController>();
     }
 
     void GetHandBrakeInput(InputAction.CallbackContext context)
@@ -90,23 +96,22 @@ public class CarBehaviour : MonoBehaviour
     private void Update()
     {
         m_Wheels[0].ConfigureVehicleSubsteps(criticalSpeed, stepBelow, stepAbove);
-        foreach (WheelCollider wheel in m_Wheels)
-        {
-            if (wheel.transform.localPosition.z > 0)
-            {
+        foreach (WheelCollider wheel in m_Wheels) {
+            if (wheel.transform.localPosition.z > 0) {
                 wheel.steerAngle = angle;
             }
-            if (wheel.transform.localPosition.z < 0)
-            {
+            if (wheel.transform.localPosition.z < 0) {
                 wheel.brakeTorque = handBrake;
             }
-            if (wheel.transform.localPosition.z > 0 && driveType != DriveType.FrontWheelDrive)
-            {
-                wheel.motorTorque = torque;
-            }
-            if (wheel.transform.localPosition.z < 0 && driveType != DriveType.FrontWheelDrive)
-            {
-                wheel.motorTorque = torque;
+            if (gameController.getMode() == GameController.Mode.RACE || !blockingInputs) {
+                if (wheel.transform.localPosition.z > 0 && driveType != DriveType.FrontWheelDrive) {
+                    wheel.motorTorque = torque;
+                }
+                if (wheel.transform.localPosition.z < 0 && driveType != DriveType.FrontWheelDrive) {
+                    wheel.motorTorque = torque;
+                }
+            }else if (gameController.getMode() == GameController.Mode.FINISHED) {
+                wheel.brakeTorque = breakTorque;
             }
             if (wheelShape)
             {

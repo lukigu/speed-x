@@ -100,6 +100,13 @@
         "com.unity.modules.imgui": "1.0.0"
       }
     },
+    "jillejr.newtonsoft.json-for-unity": {
+      "version": "https://github.com/jilleJr/Newtonsoft.Json-for-Unity.git#13.0.102",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "415da265ef0213c158bb9e92613a2a8e98e1e18f"
+    },
     "com.unity.modules.ai": {
       "version": "1.0.0",
       "depth": 0,
