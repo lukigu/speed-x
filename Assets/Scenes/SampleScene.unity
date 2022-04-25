@@ -3911,10 +3911,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 765216671538119608, guid: db5c56e2fd743c445b8166279feff496, type: 3}
-      propertyPath: blockingInputs
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 765216671538119609, guid: db5c56e2fd743c445b8166279feff496, type: 3}
       propertyPath: m_Name
       value: BaseCar
