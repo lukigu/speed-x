@@ -6,6 +6,9 @@ using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour {
+
+    public static int numberOfLapsNextRace;
+
     [SerializeField]
     private int countdown;
 
@@ -18,14 +21,20 @@ public class GameController : MonoBehaviour {
 
     private float previousCountdownTime;
 
+    private int currentLap;
+
     private List<GameTimeListener> gameTimeListeners;
 
     private Mode mode;
 
+    private CoinsConfiguration coinsConfiguration;
+    private DataManager dataManager;
 
     public GameController() {
         this.gameTimeListeners = new List<GameTimeListener>();
         this.mode = Mode.NONE;
+        this.coinsConfiguration = new CoinsConfiguration();
+        this.dataManager = DataManager.getInstance();
     }
 
     public void Start() {
@@ -67,10 +76,14 @@ public class GameController : MonoBehaviour {
         this.raceFinishTime = getCurrentTime();
         this.raceTime = this.raceFinishTime - this.raceStartTime;
         float currentRecord = DataManager.getInstance().gameData.getPlayerRecord();
+        Debug.Log("Record: " + currentRecord);
+        int coins = this.coinsConfiguration.calcCoins(SceneManager.GetActiveScene().name, currentRecord, this.raceTime);
+        this.dataManager.getGameData().coins += coins;
         if (currentRecord == 0 || currentRecord > this.raceTime)
-            DataManager.getInstance().getGameData().addNewRecord(SceneManager.GetActiveScene().name, this.raceTime);
+            this.dataManager.getGameData().addNewRecord(SceneManager.GetActiveScene().name, this.raceTime);
+        this.dataManager.saveData();
         foreach (GameTimeListener listener in this.gameTimeListeners)
-            listener.onRaceFinish();
+            listener.onRaceFinished();
 
     }
 
@@ -78,15 +91,22 @@ public class GameController : MonoBehaviour {
         if (mode == Mode.RACE)
             throw new Exception("Race is already running!");
         this.mode = Mode.RACE;
+        this.currentLap = 1;
         this.raceStartTime = getCurrentTime();
-        foreach (GameTimeListener listener in this.gameTimeListeners)
-            listener.onRaceStart();
+        foreach (GameTimeListener listener in this.gameTimeListeners) {
+            listener.onRaceStarted();
+        }
     }
 
     public void reset() {
+        this.currentLap = 0;
         this.countdownValue = this.countdown;
         this.startTime = getCurrentTime();
         this.previousCountdownTime = this.startTime;
+    }
+
+    public int getCurrentLap() {
+        return this.currentLap;
     }
 
     private float getCurrentTime() {
@@ -119,7 +139,7 @@ public class GameController : MonoBehaviour {
 
     public interface GameTimeListener {
         void onCountDown();
-        void onRaceStart();
-        void onRaceFinish();
+        void onRaceStarted();
+        void onRaceFinished();
     }
 }

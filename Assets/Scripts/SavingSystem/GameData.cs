@@ -6,6 +6,11 @@ using UnityEngine.SceneManagement;
 [System.Serializable]
 public class GameData{
     public IDictionary<string, float> playerRecords;
+    public int coins;
+
+    public GameData() {
+        this.coins = 0;
+    }
 
     public float getPlayerRecord(string levelName) {
         float record = 0;

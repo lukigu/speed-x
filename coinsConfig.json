@@ -1,0 +1,28 @@
+
+{
+    "defaultCoins": 15,
+    "defaultRecordBonus": 5,
+    "levels": {
+        "SampleScene":{
+            "defaultCoins": 40,
+            "recordBonus": 80,
+            "timeBonuses": [
+                {
+                    "tTime": "1:30",
+                    "first": 50,
+                    "defaultCoins": 5
+                },
+                {
+                    "tTime": "1:20",
+                    "first": 100,
+                    "defaultCoins": 10
+                },
+                {
+                    "tTime": "1:10",
+                    "first": 100,
+                    "defaultCoins": 10
+                }
+            ]
+        }
+    }
+}

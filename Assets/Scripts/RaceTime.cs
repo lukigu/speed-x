@@ -28,11 +28,11 @@ public class RaceTime : MonoBehaviour, GameController.GameTimeListener {
         Debug.Log("Odliczanie: " + this.gameController.getCountdownValue()) ;
     }
 
-    public void onRaceFinish() {
+    public void onRaceFinished() {
         Debug.Log("Wyscig zakonczony : " + time2String(this.gameController.getRaceTime()));
     }
 
-    public void onRaceStart() {
+    public void onRaceStarted() {
         Debug.Log("Wyscig rozpoczety");
     }
 
