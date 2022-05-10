@@ -2,11 +2,14 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class RaceTime : MonoBehaviour, GameController.GameTimeListener {
 
     private GameController gameController;
 
+    [Header("UI")]
+    public Text timerLabel;
     void Awake() {
         this.gameController = FindObjectOfType<GameController>();
         this.gameController.registerGameTimeListener(this);
@@ -22,6 +25,7 @@ public class RaceTime : MonoBehaviour, GameController.GameTimeListener {
         if(this.gameController.getMode() == GameController.Mode.RACE && this.gameController.getRaceTime() > 10) {
             this.gameController.finishRace();
         }
+        //timerLabel.text = time2String(this.gameController.getRaceTime()) + " s";
     }
 
     public void onCountDown() {
