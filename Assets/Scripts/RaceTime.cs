@@ -22,10 +22,7 @@ public class RaceTime : MonoBehaviour, GameController.GameTimeListener {
     }
 
     void Update() {
-        if(this.gameController.getMode() == GameController.Mode.RACE && this.gameController.getRaceTime() > 10) {
-            this.gameController.finishRace();
-        }
-        //timerLabel.text = time2String(this.gameController.getRaceTime()) + " s";
+        timerLabel.text = time2String(this.gameController.getRaceTime()) + " s";
     }
 
     public void onCountDown() {
