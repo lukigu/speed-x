@@ -7,7 +7,10 @@ using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour {
 
+
     public static int numberOfLapsNextRace;
+
+    public GameObject completestagescreen;
 
     [SerializeField]
     private int countdown;
@@ -142,4 +145,11 @@ public class GameController : MonoBehaviour {
         void onRaceStarted();
         void onRaceFinished();
     }
+
+    public void completelevel()
+    {
+        completestagescreen.SetActive(true);
+        Debug.Log("Stage Completed");
+    }
+
 }
