@@ -53,7 +53,25 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 0c29c686f69e64feba81baa1e15231fd, type: 3}
       propertyPath: m_Name
-      value: dzrewo1 (7)
+      value: dzrewo1 (7) Variant
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0c29c686f69e64feba81baa1e15231fd, type: 3}
+--- !u!1 &7756079151421198778 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 0c29c686f69e64feba81baa1e15231fd, type: 3}
+  m_PrefabInstance: {fileID: 7449597225242143979}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &3773450939050002629
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7756079151421198778}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 3, z: 1}
+  m_Center: {x: 0, y: 1, z: 0}
