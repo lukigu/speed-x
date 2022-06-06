@@ -45836,8 +45836,53 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5432793711421348044, guid: 83f0c73c698fae24195fcdbe483ce5c1, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 2894969533170290384, guid: bcfb2614a20c97943a80e9787bbe857b, type: 3}
+    - target: {fileID: 5432793711421348044, guid: 83f0c73c698fae24195fcdbe483ce5c1, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: BackToMenu
+      objectReference: {fileID: 0}
+    - target: {fileID: 5432793711421348044, guid: 83f0c73c698fae24195fcdbe483ce5c1, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: OptionsMenu, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 5432793711421348044, guid: 83f0c73c698fae24195fcdbe483ce5c1, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 83f0c73c698fae24195fcdbe483ce5c1, type: 3}
+--- !u!1 &1403602322 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5432793711580121131, guid: 83f0c73c698fae24195fcdbe483ce5c1, type: 3}
+  m_PrefabInstance: {fileID: 1403602321}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1403602323 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5432793711580121125, guid: 83f0c73c698fae24195fcdbe483ce5c1, type: 3}
+  m_PrefabInstance: {fileID: 1403602321}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1403602322}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1403602324
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1403602322}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 168db454169adc144a6f16e5f927126c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timerLabel: {fileID: 1403602323}
 --- !u!1 &1404011573
 GameObject:
   m_ObjectHideFlags: 0
