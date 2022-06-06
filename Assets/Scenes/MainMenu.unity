@@ -449,6 +449,10 @@ PrefabInstance:
       propertyPath: settingsLevelName
       value: OptionsMenu
       objectReference: {fileID: 0}
+    - target: {fileID: 5950488310465772387, guid: 8f284440ac82ae2429d7187bc97d8ecb, type: 3}
+      propertyPath: workshopLevelName
+      value: CarWorkshop
+      objectReference: {fileID: 0}
     - target: {fileID: 7979701887726628935, guid: 8f284440ac82ae2429d7187bc97d8ecb, type: 3}
       propertyPath: m_Name
       value: Canvas
