@@ -29,6 +29,7 @@ public class CarBehaviour : MonoBehaviour
     private GameController gameController;
     [SerializeField]
     private bool blockingInputs = false;
+    string carName;
 
     private void Awake()
     {
@@ -48,6 +49,9 @@ public class CarBehaviour : MonoBehaviour
         accelerationInputAction.canceled += GetTorqueInput;
 
         gameController = FindObjectOfType<GameController>();
+
+        this.carName = "car1";
+        loadCarUpgrades();
     }
 
     void GetHandBrakeInput(InputAction.CallbackContext context)
@@ -132,5 +136,13 @@ public class CarBehaviour : MonoBehaviour
                 }
             }
         }
+    }
+
+    private void loadCarUpgrades() {
+        GameData data = DataManager.getInstance().getGameData();
+        CarUpgrades upgrades = data.getCarUpgrades(this.carName);
+        this.maxTorque = data.getMotorTorque(upgrades);
+        this.breakTorque = data.getBreakForce(upgrades);
+        this.maxAngle = data.getMaxAngle(upgrades);
     }
 }

@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 public class GameData{
     public IDictionary<string, float> playerRecords;
     public int coins;
+    public IDictionary<string, CarUpgrades> carUpgrades;
 
     public GameData() {
         this.coins = 0;
@@ -34,5 +35,35 @@ public class GameData{
 
     public void addNewRecord(float recordTime) {
         addNewRecord(SceneManager.GetActiveScene().name, recordTime);
+    }
+
+    public CarUpgrades getCarUpgrades(string carName) {
+        if(this.carUpgrades == null)
+            this.carUpgrades = new Dictionary<string, CarUpgrades>();
+        CarUpgrades upgrades = null;
+        this.carUpgrades.TryGetValue(carName, out upgrades);
+        if (upgrades == null) {
+            upgrades = new CarUpgrades();
+            this.carUpgrades[carName] = upgrades;
+        }
+        return upgrades;
+    }
+
+    public float getMotorTorque(CarUpgrades upgrades) {
+        float motorTorque = 300;
+        motorTorque += 15 * upgrades.engine;
+        return motorTorque;
+    }
+
+    public float getBreakForce(CarUpgrades upgrades) {
+        float breakForce = 90000;
+        breakForce += 2000 * upgrades.breaks;
+        return breakForce;
+    }
+
+    public float getMaxAngle(CarUpgrades upgrades) {
+        float maxAngle = 40;
+        maxAngle += upgrades.wheels;
+        return maxAngle;
     }
 }
