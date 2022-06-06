@@ -150,6 +150,7 @@ public class GameController : MonoBehaviour {
     {
         completestagescreen.SetActive(true);
         Debug.Log("Stage Completed");
+        finishRace();
     }
 
 }
