@@ -10,6 +10,7 @@ public class OptionsMenu : MonoBehaviour
 {
 
     public AudioMixer audioMixer;
+    public AudioMixer sfxMixer;
 
     public Dropdown resolutionDropdown;
 
@@ -51,6 +52,11 @@ public class OptionsMenu : MonoBehaviour
     public void SetVolume(float volume)
     {
         audioMixer.SetFloat("volume", volume);
+    }
+
+    public void SetSfxVolume(float sfxVolume)
+    {
+        sfxMixer.SetFloat("sfxVolume", sfxVolume);
     }
 
     public void SetQuality(int qualityIndex)
