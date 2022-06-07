@@ -64859,7 +64859,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 552213c84b75385419822539058a5bab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timerUI: {fileID: 0}
+  timerUI: {fileID: 1709487868}
   stageCompletedUI: {fileID: 2085642188}
   timeLabel: {fileID: 1403602323}
   cointsLabel: {fileID: 1920891652}
