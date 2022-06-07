@@ -20,4 +20,5 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/SplitScreenScene.unity
     guid: 5a9c75c48b03dfa45a65a05b2bd2ebfb
-  m_configObjects: {}
+  m_configObjects:
+    com.unity.input.settings: {fileID: 11400000, guid: 373f6c5a83a03804aa282bcf4d4d7289, type: 2}
