@@ -14,6 +14,11 @@ public class MainMenuController : MonoBehaviour
         SceneManager.LoadScene(this.startGameLevelName);
     }
 
+    public void startSplitScreene()
+    {
+        SceneManager.LoadScene("SplitScreenScene");
+    }
+
     public void openWorkshop()
     {
         SceneManager.LoadScene(this.workshopLevelName);

@@ -445,6 +445,22 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 349364789997214452, guid: 8f284440ac82ae2429d7187bc97d8ecb, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 349364789997214452, guid: 8f284440ac82ae2429d7187bc97d8ecb, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 349364789997214452, guid: 8f284440ac82ae2429d7187bc97d8ecb, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 349364789997214452, guid: 8f284440ac82ae2429d7187bc97d8ecb, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5950488310465772387, guid: 8f284440ac82ae2429d7187bc97d8ecb, type: 3}
       propertyPath: settingsLevelName
       value: OptionsMenu
