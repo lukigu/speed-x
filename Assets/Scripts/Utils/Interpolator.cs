@@ -6,6 +6,7 @@ public partial class Interpolator<T>
 {
     float fullTime;
     float currentTime;
+    float delay;
 
     T startingValue;
     T targetValue;
@@ -29,6 +30,7 @@ public partial class Interpolator<T>
         this.onUpdateListener = onUpdateListener;
         this.currentTime = 0;
         this.paused = true;
+        this.delay = 0;
     }
 
     public void update()
@@ -36,9 +38,12 @@ public partial class Interpolator<T>
         if (!this.paused)
         {
             this.currentTime += Time.deltaTime;
-            if (this.currentTime < this.fullTime)
+            if (this.currentTime < this.fullTime + this.delay)
             {
-                this.currentValue = this.calculatorInterpolation.calculateInterpolatedValue(this.startingValue, this.targetValue, this.currentTime / this.fullTime); ;
+                if(this.currentTime <= this.delay)
+                    this.currentValue = this.calculatorInterpolation.calculateInterpolatedValue(this.startingValue, this.targetValue, 0);
+                else
+                    this.currentValue = this.calculatorInterpolation.calculateInterpolatedValue(this.startingValue, this.targetValue, (this.currentTime - this.delay) / this.fullTime);
             }
             else
             {
@@ -81,5 +86,9 @@ public partial class Interpolator<T>
     public T getValue()
     {
         return this.currentValue;
+    }
+
+    public void setDelay(float delay) {
+        this.delay = delay;
     }
 }

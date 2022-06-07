@@ -7,30 +7,41 @@ using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour {
 
-
-    public static int numberOfLapsNextRace;
-
     public GameObject completestagescreen;
 
     [SerializeField]
-    private int countdown;
+    //Wartoœæ startowa odliczania(domyœlnie 3s)
+    private int countdown = 3;
 
+    //Czas startu odliczania
     private float startTime;
+    //Czas startu wyœcigu(wymagany od obliczania czasu) - czas systemowy
     private float raceStartTime;
+    //Czas zakoñczenia wyœcigu(tylko informacyjnie/na przysz³oœæ) - czas systemowy
     private float raceFinishTime;
 
-    private float raceTime;
+    //Aktualna wartoœæ odliczania
     private int countdownValue;
-
+    //Czas zmniejszenia licznika odliczania(licznik zostaje zmniejszony o 1 gdy roznica aktualnego czasu i tej wartosci > 1s)
     private float previousCountdownTime;
 
-    private int currentLap;
+    //Aktualny czas wyœcigu (wyswietlany w interfejsie), po zakonczeniu wyscigu = raceFinishTime - startFinishTime
+    private float raceTime;
+    //Suma zdobtych monent za wyscig wyswietlana na ekranie koncowym (Wartoœæ domyœlna + bonus w przypadku nowego rekordu)
+    public int coins;
+    //Po zakonczeniu przejazdu: czy jest nowym rekordem (informacyjnie)
+    public bool record;
 
+    //Lista sluchaczy, ktorzy zostaj¹ poinformowani o zdarzeniach: rozpoczecie odliczania, rozpoczecie i zakonczenie wyscigu
     private List<GameTimeListener> gameTimeListeners;
 
+    //Aktualny status: ODLICZANIE, WYSCIG, ZAKONCZONY
     private Mode mode;
 
+    //Ustawienia monet: domyslna wartoœæ i wartoœci bonusowe za rekord
     private CoinsConfiguration coinsConfiguration;
+
+    //Menadzer danych - odpowiedzialny za dostep danych w aplikacji oraz zapis i odczyt z dysku
     private DataManager dataManager;
 
     public GameController() {
@@ -38,6 +49,10 @@ public class GameController : MonoBehaviour {
         this.mode = Mode.NONE;
         this.coinsConfiguration = new CoinsConfiguration();
         this.dataManager = DataManager.getInstance();
+    }
+
+    public void Awake() {
+        start();
     }
 
     public void Start() {
@@ -73,6 +88,7 @@ public class GameController : MonoBehaviour {
     }
 
     public void finishRace() {
+        Debug.Log("finishRace");
         if (mode == Mode.NONE || mode == Mode.FINISHED)
             return;
         this.mode = Mode.FINISHED;
@@ -80,21 +96,21 @@ public class GameController : MonoBehaviour {
         this.raceTime = this.raceFinishTime - this.raceStartTime;
         float currentRecord = DataManager.getInstance().gameData.getPlayerRecord();
         Debug.Log("Record: " + currentRecord);
-        int coins = this.coinsConfiguration.calcCoins(SceneManager.GetActiveScene().name, currentRecord, this.raceTime);
+        this.coins = this.coinsConfiguration.calcCoins(SceneManager.GetActiveScene().name, currentRecord, this.raceTime);
         this.dataManager.getGameData().coins += coins;
-        if (currentRecord == 0 || currentRecord > this.raceTime)
+        if (currentRecord == 0 || currentRecord > this.raceTime) {
+            this.record = true;
             this.dataManager.getGameData().addNewRecord(SceneManager.GetActiveScene().name, this.raceTime);
+        }
         this.dataManager.saveData();
         foreach (GameTimeListener listener in this.gameTimeListeners)
             listener.onRaceFinished();
-
     }
 
     private void startRace() {
         if (mode == Mode.RACE)
             throw new Exception("Race is already running!");
         this.mode = Mode.RACE;
-        this.currentLap = 1;
         this.raceStartTime = getCurrentTime();
         foreach (GameTimeListener listener in this.gameTimeListeners) {
             listener.onRaceStarted();
@@ -102,14 +118,11 @@ public class GameController : MonoBehaviour {
     }
 
     public void reset() {
-        this.currentLap = 0;
         this.countdownValue = this.countdown;
         this.startTime = getCurrentTime();
+        this.raceStartTime = 0;
         this.previousCountdownTime = this.startTime;
-    }
-
-    public int getCurrentLap() {
-        return this.currentLap;
+        this.record = false;
     }
 
     private float getCurrentTime() {
@@ -136,6 +149,10 @@ public class GameController : MonoBehaviour {
         return this.mode;
     }
 
+    public int getCoins() {
+        return this.coins;
+    }
+
     public enum Mode {
         NONE, COUNTINGDOWN, RACE, FINISHED
     }
@@ -148,9 +165,8 @@ public class GameController : MonoBehaviour {
 
     public void completelevel()
     {
-        completestagescreen.SetActive(true);
         Debug.Log("Stage Completed");
-        finishRace();
+        //finishRace();
     }
 
 }
